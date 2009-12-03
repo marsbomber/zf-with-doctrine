@@ -18,3 +18,5 @@ It should look like:
       vendor/
       ZFDebug/
       Zend/
+
+[My blog story](http://blog.elinkmedia.net.au/)

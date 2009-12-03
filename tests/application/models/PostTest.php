@@ -22,6 +22,16 @@ class PostTest extends Zend_Test_PHPUnit_ControllerTestCase
         
         $this->assertTrue(($numOfPostsAfter - $numOfPostsBefore) === 1);
     }
+    
+    public function testCanGetPostAuthorName()
+    {
+        $post = Doctrine::getTable('Model_Post')->findOneById(1);
+        
+        $authorName = $post->getAuthorName();
+        
+        $this->assertEquals('John Smith', $authorName);
+        
+    }
 
     public function tearDown()
     {
