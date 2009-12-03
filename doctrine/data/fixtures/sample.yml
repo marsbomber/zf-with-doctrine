@@ -1,0 +1,11 @@
+---
+Model_Post:
+  Post_1:
+    title: post 1
+    content: content 1
+    Author:
+      username: username 1
+      password: password 1
+      first_name: first name 1
+      last_name: last name 1
+

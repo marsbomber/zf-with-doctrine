@@ -1,0 +1,59 @@
+options:
+  type: INNODB
+  collate: utf8_unicode_ci
+  charset: utf8
+ 
+Post:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    title: 
+      type: string(255)
+    content: 
+      type: text
+    user_id: 
+      type: integer(4)
+  relations:
+    User:
+      alias: Author
+      foreignAlias: Posts
+  actAs:
+    Timestampable:
+ 
+User:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    username: 
+      type: string(255)
+    password:
+      type: string(255)
+    first_name:
+      type: string(255)
+    last_name:
+      type: string(255)
+ 
+Comment:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    post_id:
+      type: integer(4)
+    user_id:
+      type: integer(4)
+    comment:
+      type: text
+  relations:
+    User:
+      alias: Author
+      foreignAlias: Comments
+    Post:
+      foreignAlias: Comments
+  actAs:
+    Timestampable:
