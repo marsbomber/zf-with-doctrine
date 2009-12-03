@@ -19,4 +19,4 @@ It should look like:
       ZFDebug/
       Zend/
 
-[My blog story](http://blog.elinkmedia.net.au/)
+[My blog story](http://blog.elinkmedia.net.au/2009/12/03/zf-doctrine-and-unit-tests/)
