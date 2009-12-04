@@ -14,9 +14,10 @@ class IndexController extends Zend_Controller_Action
     {
         $postDao = Doctrine::getTable('Model_Post');
         
-        Zend_Debug::dump($postDao->findOneById(1));
-        
+        $posts = $postDao->findAll();
+        $this->view->posts = $posts;
     }
+    
 }
 
 

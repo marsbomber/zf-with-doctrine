@@ -4,4 +4,5 @@ library/Doctrine/*
 library/Doctrine.php
 library/ZFDebug/*
 library/vendor/*
+nbproject/*
 tests/log/*

@@ -11,7 +11,7 @@ class PostTest extends Zend_Test_PHPUnit_ControllerTestCase
     {
         $postDao = Doctrine::getTable('Model_Post');
         $numOfPostsBefore = $postDao->count();
-        
+
         $p = new Model_Post();
         $p->title = 'Hoolala';
         $p->content = 'what can I say?';

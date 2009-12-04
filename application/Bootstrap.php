@@ -17,6 +17,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     public function _initDoctrine()
     {
+        $this->getApplication()->getAutoloader()
+                               ->pushAutoloader(array('Doctrine', 'autoload'));
+                               
         $doctrineConfig = $this->getOption('doctrine');
         
         $manager = Doctrine_Manager::getInstance();
