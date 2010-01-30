@@ -9,8 +9,8 @@
  * @property string $title
  * @property text $content
  * @property integer $user_id
- * @property Model_User $Author
- * @property Doctrine_Collection $Comments
+ * @property Model_User $author
+ * @property Doctrine_Collection $comments
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -48,11 +48,11 @@ abstract class Model_Base_Post extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Model_User as Author', array(
+        $this->hasOne('Model_User as author', array(
              'local' => 'user_id',
              'foreign' => 'id'));
 
-        $this->hasMany('Model_Comment as Comments', array(
+        $this->hasMany('Model_Comment as comments', array(
              'local' => 'id',
              'foreign' => 'post_id'));
 

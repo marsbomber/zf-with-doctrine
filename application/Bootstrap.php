@@ -17,16 +17,30 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
     public function _initDoctrine()
     {
+        // Autoload doctrine
         $this->getApplication()->getAutoloader()
                                ->pushAutoloader(array('Doctrine', 'autoload'));
-                               
-        $doctrineConfig = $this->getOption('doctrine');
-        
+
         $manager = Doctrine_Manager::getInstance();
-        
+
+        // Enable Doctrine DQL callbacks, enables SoftDelete behavior
+        $manager->setAttribute(Doctrine_Core::ATTR_USE_DQL_CALLBACKS, true);
+
+        // Set models loading style
+        $manager->setAttribute(Doctrine_Core::ATTR_MODEL_LOADING, Doctrine_Core::MODEL_LOADING_PEAR);
+
+        // Enable attr validation
+        $manager->setAttribute(Doctrine_Core::ATTR_VALIDATE, Doctrine_Core::VALIDATE_ALL);
+
+        // Disable attr overwrite issue
+        // http://trac.doctrine-project.org/ticket/990
+        $manager->setAttribute(Doctrine::ATTR_HYDRATE_OVERWRITE, false);
+
         // Creating named connection
+        $doctrineConfig = $this->getOption('doctrine');
         $manager->openConnection($doctrineConfig['connection_string'], 'doctrine');
-        
+        $manager->getConnection('doctrine')->setCharset('utf8');
+
         return $manager;
     }
     

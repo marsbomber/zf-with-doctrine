@@ -17,8 +17,8 @@ Post:
       type: integer(4)
   relations:
     User:
-      alias: Author
-      foreignAlias: Posts
+      alias: author
+      foreignAlias: posts
   actAs:
     Timestampable:
  
@@ -51,9 +51,10 @@ Comment:
       type: text
   relations:
     User:
-      alias: Author
-      foreignAlias: Comments
+      alias: author
+      foreignAlias: comments
     Post:
-      foreignAlias: Comments
+      foreignAlias: comments
   actAs:
     Timestampable:
+      

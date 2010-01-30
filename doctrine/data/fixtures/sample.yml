@@ -1,11 +1,27 @@
 ---
+Model_User:
+  Poster:
+    username: john.smith
+    password: password
+    first_name: John
+    last_name: Smith
+  Commenter:
+    username: charlie.michael
+    password: password
+    first_name: Charlie
+    last_name: Michael
+
+Model_Comment:
+  CommentOne:
+    comment: great post
+    author: Commenter
+  CommentTwo:
+    comment: another great post
+    author: Commenter
+
 Model_Post:
-  Post_1:
+  PostOne:
     title: Welcome
     content: hello everyone
-    Author:
-      username: john.smith
-      password: password
-      first_name: John
-      last_name: Smith
-
+    author: Poster
+    comments: [CommentOne, CommentTwo]

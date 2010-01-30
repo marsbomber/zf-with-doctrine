@@ -9,7 +9,7 @@
  * @property integer $post_id
  * @property integer $user_id
  * @property text $comment
- * @property Model_User $Author
+ * @property Model_User $author
  * @property Model_Post $Post
  * 
  * @package    ##PACKAGE##
@@ -48,7 +48,7 @@ abstract class Model_Base_Comment extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Model_User as Author', array(
+        $this->hasOne('Model_User as author', array(
              'local' => 'user_id',
              'foreign' => 'id'));
 

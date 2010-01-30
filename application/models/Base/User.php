@@ -10,8 +10,8 @@
  * @property string $password
  * @property string $first_name
  * @property string $last_name
- * @property Doctrine_Collection $Posts
- * @property Doctrine_Collection $Comments
+ * @property Doctrine_Collection $posts
+ * @property Doctrine_Collection $comments
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -54,11 +54,11 @@ abstract class Model_Base_User extends Doctrine_Record
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Model_Post as Posts', array(
+        $this->hasMany('Model_Post as posts', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 
-        $this->hasMany('Model_Comment as Comments', array(
+        $this->hasMany('Model_Comment as comments', array(
              'local' => 'id',
              'foreign' => 'user_id'));
     }

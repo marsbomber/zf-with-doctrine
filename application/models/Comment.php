@@ -12,5 +12,12 @@
  */
 class Model_Comment extends Model_Base_Comment
 {
+    
+    public function getAuthorName()
+    {
+        $author = $this->author;
+
+        return $author->first_name . ' ' . $author->last_name;
+    }
 
 }

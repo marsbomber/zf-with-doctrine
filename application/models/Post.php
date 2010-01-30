@@ -12,8 +12,9 @@
  */
 class Model_Post extends Model_Base_Post
 {
-    public function getAuthorName() {
-        $author = $this->Author;
+    public function getAuthorName()
+    {
+        $author = $this->author;
         
         return $author->first_name . ' ' . $author->last_name;
     }
