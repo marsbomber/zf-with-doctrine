@@ -1,6 +1,6 @@
 <?php
 
-class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
+class Bootstrap extends EM_Application_Bootstrap_Bootstrap
 {
 	/**
      * Autoload stuff from the default module (which is not in a `modules` subfolder in this project)
@@ -77,6 +77,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->bootstrap('frontController');
         $frontController = $this->getResource('frontController');
         $frontController->registerPlugin($debug);
+    }
+
+    protected function _initContainer()
+    {
+        return $this->getContainer();
     }
 }
 

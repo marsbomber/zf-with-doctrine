@@ -19,4 +19,10 @@ It should look like:
       ZFDebug/
       Zend/
 
-[My blog story](http://blog.elinkmedia.net.au/2009/12/03/zf-doctrine-and-unit-tests/)
+Edit: This sample application now incorporates more stuff
+- Agavi style error handler page
+- [Symfony Dependency Injection Container](http://components.symfony-project.org/dependency-injection/)
+
+More details from my blog posts
+- ZF, Doctrine and Unit Tests(http://blog.elinkmedia.net.au/2009/12/03/zf-doctrine-and-unit-tests/)
+- Zend Framework integrate with Symfony DI Container(http://blog.elinkmedia.net.au/2010/02/06/zend-framework-integrate-with-symfony-di-container)

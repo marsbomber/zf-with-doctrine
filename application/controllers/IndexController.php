@@ -11,17 +11,7 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         $postDao = Doctrine::getTable('Model_Post');
-//
-//        $postObj = new Model_Post();
-//        $postObj->fromArray(array('title'=>'oooooooo'));
-//
-//        $user = Doctrine::getTable('Model_User')->findoneById(1);
-//        $postObj->author = $user;
-//
-//        $postObj->save();
-//        exit;
 
-        
         $posts = $postDao->findAll();
         $this->view->posts = $posts;
 
@@ -44,6 +34,25 @@ class IndexController extends Zend_Controller_Action
             }
             echo "<hr />";
         }
+    }
+
+    public function emailAction()
+    {
+        $sc = $this->getInvokeArg('bootstrap')
+            ->getResource('container');
+        $sc->setParameter('mailer.username', 'overwritevalue');
+        $sc->setParameter('mailer.password', 'overwritevalue');
+
+        if(isset($sc->mailer)) {
+            $sc->mailer->addTo('jimli@elinkmedia.net.au', 'Jim Li Elink')
+                ->setFrom('jimjinli@gmail.com', 'Jim Li Personal')
+                ->setSubject('Test Symfony DI')
+                ->setBodyText('GOOD')
+                ->send();
+
+            echo 'Email sent utilising Symfony DI Container';
+        }
+
     }
     
 }
