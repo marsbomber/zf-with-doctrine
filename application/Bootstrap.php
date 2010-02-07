@@ -2,6 +2,23 @@
 
 class Bootstrap extends EM_Application_Bootstrap_Bootstrap
 {
+    /**
+     * Setup include file cache to increase performance
+     *
+     * @return void
+     * @author Jim Li
+     */
+    protected function _initFileInlcudeCache()
+    {
+        $classFileIncCacheOptions = $this->getOption('cache');
+        $classFileIncCache = $classFileIncCacheOptions['classFileIncludeCache'];
+
+        if(file_exists($classFileIncCache)) {
+            include_once $classFileIncCache;
+        }
+        Zend_Loader_PluginLoader::setIncludeFileCache($classFileIncCache);
+    }
+
 	/**
      * Autoload stuff from the default module (which is not in a `modules` subfolder in this project)
      * (Api_, Form_, Model_, Model_DbTable, Plugin_)
